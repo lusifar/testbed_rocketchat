@@ -11,6 +11,8 @@ export const commandHandler = async (
     return;
   }
 
+  console.log(message);
+
   if (!message.msg || !message.rid) {
     return;
   }
