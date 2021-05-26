@@ -27,6 +27,7 @@ import { RichMsgCommand } from "./slashCommands/richMsgCommand";
 import { SubArgCommand } from "./slashCommands/subArgCommand";
 import { ShowModalCommand } from "./slashCommands/showModalCommand";
 import { ExtendMessageCommand } from "./slashCommands/extendMessageCommand";
+import { HTTPRequestCommand } from "./slashCommands/httpRequestCommand";
 
 import { RICH_MSG_ACTION_ID } from "./slashCommands/richMsgCommand";
 import { processRichMsgAction } from "./slashCommands/richMsgCommand";
@@ -71,6 +72,10 @@ export class TestbedApp extends App implements IUIKitInteractionHandler {
 
         await configuration.slashCommands.provideSlashCommand(
             new ExtendMessageCommand()
+        );
+
+        await configuration.slashCommands.provideSlashCommand(
+            new HTTPRequestCommand()
         );
     }
 
