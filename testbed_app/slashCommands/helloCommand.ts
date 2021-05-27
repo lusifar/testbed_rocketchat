@@ -25,6 +25,8 @@ export class HelloCommand implements ISlashCommand {
         http: IHttp,
         persis: IPersistence
     ): Promise<void> {
+        this.app.getLogger().debug("run slash command");
+
         // get the specific user and room
         const sender = await read.getUserReader().getByUsername("testbed_bot");
         if (!sender) {
