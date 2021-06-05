@@ -23,7 +23,7 @@ import {
 } from "@rocket.chat/apps-engine/definition/uikit";
 
 export class ShowModalCommand implements ISlashCommand {
-    command: string = "show-modal";
+    command: string = "testbed-show-modal";
     i18nParamsExample: string = "";
     i18nDescription: string = "The command to show modal dialog";
     providesPreview: boolean = false;

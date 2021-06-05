@@ -34,7 +34,7 @@ export const RICH_MSG_ACTION_ID: {
 };
 
 export class RichMsgCommand implements ISlashCommand {
-    command: string = "rich-msg";
+    command: string = "testbed-rich-msg";
     i18nParamsExample: string = "";
     i18nDescription: string = "the command to show the rich message";
     providesPreview: boolean = false;

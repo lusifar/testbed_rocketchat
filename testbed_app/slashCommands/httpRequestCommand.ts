@@ -10,11 +10,15 @@ import {
     SlashCommandContext,
 } from "@rocket.chat/apps-engine/definition/slashcommands";
 
+import { App } from "@rocket.chat/apps-engine/definition/App";
+
 export class HTTPRequestCommand implements ISlashCommand {
-    command: string = "http-request";
+    command: string = "testbed-http-request";
     i18nParamsExample: string = "";
     i18nDescription: string = "make the http request by the command";
     providesPreview: boolean = false;
+
+    constructor(private readonly app: App) {}
 
     public async executor(
         context: SlashCommandContext,

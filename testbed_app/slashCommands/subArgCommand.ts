@@ -11,7 +11,7 @@ import {
 import { App } from "@rocket.chat/apps-engine/definition/App";
 
 export class SubArgCommand implements ISlashCommand {
-    command: string = "sub-arg";
+    command: string = "testbed-sub-arg";
     i18nParamsExample: string = "sub-arg text IOU";
     i18nDescription: string = "The command to present the arguments in command";
     providesPreview: boolean = false;

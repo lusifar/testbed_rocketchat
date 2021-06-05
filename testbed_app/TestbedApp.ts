@@ -23,6 +23,7 @@ import { IUIKitResponse } from "@rocket.chat/apps-engine/definition/uikit/IUIKit
 
 import { TestApiEndpoint } from "./apiEndpoints/testApiEndpoint";
 import { HelloCommand } from "./slashCommands/helloCommand";
+import { PersisCommand } from "./slashCommands/persisCommand";
 import { RichMsgCommand } from "./slashCommands/richMsgCommand";
 import { SubArgCommand } from "./slashCommands/subArgCommand";
 import { ShowModalCommand } from "./slashCommands/showModalCommand";
@@ -71,11 +72,15 @@ export class TestbedApp extends App implements IUIKitInteractionHandler {
         );
 
         await configuration.slashCommands.provideSlashCommand(
-            new ExtendMessageCommand()
+            new PersisCommand(this)
         );
 
         await configuration.slashCommands.provideSlashCommand(
-            new HTTPRequestCommand()
+            new ExtendMessageCommand(this)
+        );
+
+        await configuration.slashCommands.provideSlashCommand(
+            new HTTPRequestCommand(this)
         );
     }
 

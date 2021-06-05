@@ -10,10 +10,10 @@ import {
 } from "@rocket.chat/apps-engine/definition/accessors";
 import { App } from "@rocket.chat/apps-engine/definition/App";
 
-export class HelloCommand implements ISlashCommand {
-    command: string = "testbed-hello";
+export class PersisCommand implements ISlashCommand {
+    command: string = "testbed-persis";
     i18nParamsExample: string = "";
-    i18nDescription: string = "The simple command to print hello world";
+    i18nDescription: string = "The simple command to test the persistance";
     providesPreview: boolean = false;
 
     constructor(private readonly app: App) {}
@@ -25,7 +25,7 @@ export class HelloCommand implements ISlashCommand {
         http: IHttp,
         persis: IPersistence
     ): Promise<void> {
-        this.app.getLogger().debug("run slash command");
+        this.app.getLogger().debug("run slash command - test-persis");
 
         // get the specific user and room
         const sender = await read.getUserReader().getByUsername("testbed_bot");
@@ -38,15 +38,26 @@ export class HelloCommand implements ISlashCommand {
             return;
         }
 
-        // send the
-        const msg = `Hello ${
-            context.getSender().name
-        }, welcome to the real world`;
-
         const msgBuilder = modify.getCreator().startMessage();
+        msgBuilder.setSender(sender).setRoom(room);
 
-        msgBuilder.setSender(sender).setRoom(room).setText(msg);
+        const [queryId] = context.getArguments();
+        if (!queryId) {
+            const createdId = await persis.create({
+                room: "RickyRoom",
+                mention: "@rickychao",
+                command: "/my/command",
+            });
 
+            msgBuilder.setText(`${createdId}`);
+        } else {
+            const obj = await read.getPersistenceReader().read(queryId);
+
+            // send the information to the channel
+            const msg = `${JSON.stringify(obj)}`;
+
+            msgBuilder.setText(msg);
+        }
         await modify.getCreator().finish(msgBuilder);
     }
 }

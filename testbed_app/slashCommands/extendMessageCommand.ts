@@ -11,12 +11,16 @@ import {
     SlashCommandContext,
 } from "@rocket.chat/apps-engine/definition/slashcommands";
 
+import { App } from "@rocket.chat/apps-engine/definition/App";
+
 export class ExtendMessageCommand implements ISlashCommand {
-    command: string = "extend-message";
+    command: string = "testbed-extend-message";
     i18nParamsExample: string = "";
     i18nDescription: string =
         "extend the message with image and customer field";
     providesPreview: boolean = false;
+
+    constructor(private readonly app: App) {}
 
     public async executor(
         context: SlashCommandContext,
