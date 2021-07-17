@@ -1,0 +1,15 @@
+{
+    "id": "d6aef279-7bfb-48c2-a982-415a0a30ef46",
+    "version": "0.0.1",
+    "requiredApiVersion": "^1.4.0",
+    "iconFile": "icon.png",
+    "author": {
+        "name": "rickychao",
+        "homepage": "https://github.com/lusifar",
+        "support": "https://github.com/lusifar"
+    },
+    "name": "testbed-app-template",
+    "nameSlug": "testbed-app-template",
+    "classFile": "TestbedAppTemplateApp.ts",
+    "description": "the testbed for developing rocket.chat app"
+}

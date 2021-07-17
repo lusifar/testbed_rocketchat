@@ -1,5 +1,5 @@
-# testbed_app
-the testbed for testing the feature of rocket.chat app
+# testbed-app-template
+the testbed for developing rocket.chat app
 
 ## Getting Started
 Now that you have generated a blank default Rocket.Chat App, what are you supposed to do next?
